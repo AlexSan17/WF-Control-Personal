@@ -79,7 +79,32 @@ namespace Control_Personal.CapaPresentacion
 
         private void personalActivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<Activo>();
+            var objNegocio = new Control_Personal.CapaNegocios.N_Empleado();
+            int activos = objNegocio.Listar().Count(emp => emp.Estado != null && emp.Estado.Trim().ToLower() == "activo");
+
+            if (activos == 0)
+            {
+                MessageBox.Show("No hay empleados activos registrados.", "Personal activo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Actualmente hay {activos} empleado(s) activo(s).", "Personal activo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void personalInactivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var objNegocio = new Control_Personal.CapaNegocios.N_Empleado();
+            int inactivos = objNegocio.Listar().Count(emp => emp.Estado != null && emp.Estado.Trim().ToLower() == "inactivo");
+
+            if (inactivos == 0)
+            {
+                MessageBox.Show("No hay empleados inactivos registrados.", "Personal inactivo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Actualmente hay {inactivos} empleado(s) inactivo(s).", "Personal inactivo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void salirDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)

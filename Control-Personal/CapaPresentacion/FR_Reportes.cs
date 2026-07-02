@@ -1,5 +1,5 @@
 using Control_Personal.Entidades;
-using Control_Personal.CapaDatos;
+using Control_Personal.CapaNegocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ namespace Control_Personal.CapaPresentacion
         private void FR_Reportes_Load(object sender, EventArgs e)
         {
             dgv_empleados.Columns.Clear();
-            dgv_empleados.DataSource = Datos.ListaEmpleados.ToList();
+            dgv_empleados.DataSource = new N_Empleado().Listar();
         }
     }
 }

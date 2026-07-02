@@ -1,5 +1,5 @@
 using Control_Personal.Entidades;
-using Control_Personal.CapaDatos;
+using Control_Personal.CapaNegocios;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,6 +8,8 @@ namespace Control_Personal.CapaPresentacion
 {
     public partial class Departamentos : Form
     {
+        private N_Empleado objNegocio = new N_Empleado();
+
         public Departamentos()
         {
             InitializeComponent();
@@ -25,7 +27,8 @@ namespace Control_Personal.CapaPresentacion
 
         private void MostrarPersonalPorDepartamento()
         {
-            if (Datos.ListaEmpleados.Count == 0)
+            var lista = objNegocio.Listar();
+            if (lista.Count == 0)
             {
                 dgv_empleados.Columns.Clear();
                 dgv_empleados.DataSource = null;
@@ -40,7 +43,7 @@ namespace Control_Personal.CapaPresentacion
                 return;
             }
 
-            var reporte = Datos.ListaEmpleados
+            var reporte = lista
                 .GroupBy(emp => string.IsNullOrWhiteSpace(emp.Departamento) ? "Sin departamento" : emp.Departamento)
                 .Select(grupo => new
                 {

@@ -4,16 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Control_Personal.CapaNegocios;
 
 namespace Control_Personal.CapaPresentacion
 {
     public partial class FR_EliminarEmpleado : Form
     {
+        private N_Empleado objNegocio = new N_Empleado();
+
         public FR_EliminarEmpleado()
         {
             InitializeComponent();
             ConfigurarFormulario();
-            MostrarEmpleados(Datos.ListaEmpleados);
+            MostrarEmpleados(objNegocio.Listar());
         }
 
         private void ConfigurarFormulario()
@@ -65,7 +68,7 @@ namespace Control_Personal.CapaPresentacion
         private void BuscarEmpleado()
         {
             string criterio = cb_criterio.Text;
-            string busqueda = tb_buscar.Text.Trim().ToLower();
+            string busqueda = tb_buscar.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(busqueda))
             {
@@ -74,38 +77,7 @@ namespace Control_Personal.CapaPresentacion
                 return;
             }
 
-            List<Empleado> resultado = new List<Empleado>();
-
-            if (criterio == "Código")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Codigo != null && emp.Codigo.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Cédula")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Cedula != null && emp.Cedula.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Nombre")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Nombres != null && emp.Nombres.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Apellido")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Apellidos != null && emp.Apellidos.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Departamento")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Departamento != null && emp.Departamento.ToLower().Contains(busqueda))
-                    .ToList();
-            }
+            List<Empleado> resultado = objNegocio.Consultar(criterio, busqueda);
 
             if (resultado.Count == 0)
             {
@@ -117,7 +89,7 @@ namespace Control_Personal.CapaPresentacion
 
         private void MostrarTodos()
         {
-            MostrarEmpleados(Datos.ListaEmpleados);
+            MostrarEmpleados(objNegocio.Listar());
             tb_buscar.Clear();
             cb_criterio.SelectedIndex = 0;
             tb_buscar.Focus();
@@ -132,21 +104,15 @@ namespace Control_Personal.CapaPresentacion
             }
 
             string codigo = dgv_empleados.CurrentRow.Cells["Codigo"].Value.ToString();
-
-            Empleado empleadoEliminar = Datos.ListaEmpleados
-                .FirstOrDefault(emp => emp.Codigo == codigo);
-
-            if (empleadoEliminar == null)
-            {
-                MessageBox.Show("No se encontró el empleado seleccionado.");
-                return;
-            }
+            string nombres = dgv_empleados.CurrentRow.Cells["Nombres"].Value.ToString();
+            string apellidos = dgv_empleados.CurrentRow.Cells["Apellidos"].Value.ToString();
+            string cedula = dgv_empleados.CurrentRow.Cells["Cedula"].Value.ToString();
 
             DialogResult respuesta = MessageBox.Show(
                 "¿Está seguro de eliminar este empleado?\n\n" +
-                "Código: " + empleadoEliminar.Codigo + "\n" +
-                "Cédula: " + empleadoEliminar.Cedula + "\n" +
-                "Empleado: " + empleadoEliminar.Nombres + " " + empleadoEliminar.Apellidos,
+                "Código: " + codigo + "\n" +
+                "Cédula: " + cedula + "\n" +
+                "Empleado: " + nombres + " " + apellidos,
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
@@ -157,16 +123,22 @@ namespace Control_Personal.CapaPresentacion
                 return;
             }
 
-            Datos.ListaEmpleados.Remove(empleadoEliminar);
+            string mensaje;
+            if (objNegocio.Eliminar(codigo, out mensaje))
+            {
+                MessageBox.Show(
+                    "Empleado eliminado correctamente.",
+                    "Eliminación exitosa",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            MessageBox.Show(
-                "Empleado eliminado correctamente.",
-                "Eliminación exitosa",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-
-            MostrarEmpleados(Datos.ListaEmpleados);
+            MostrarEmpleados(objNegocio.Listar());
             tb_buscar.Clear();
             cb_criterio.SelectedIndex = 0;
         }

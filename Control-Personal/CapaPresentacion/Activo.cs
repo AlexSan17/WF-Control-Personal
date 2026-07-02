@@ -1,4 +1,4 @@
-using Control_Personal.CapaDatos;
+using Control_Personal.CapaNegocios;
 using Control_Personal.Entidades;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,8 @@ namespace Control_Personal.CapaPresentacion
 {
     public partial class Activo : Form
     {
+        private N_Empleado objNegocio = new N_Empleado();
+
         public Activo()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace Control_Personal.CapaPresentacion
 
         private void MostrarEmpleadosActivos()
         {
-            List<Empleado> empleadosActivos = Datos.ListaEmpleados
+            List<Empleado> empleadosActivos = objNegocio.Listar()
                 .Where(emp => emp.Estado != null && emp.Estado.Trim().ToLower() == "activo")
                 .ToList();
 

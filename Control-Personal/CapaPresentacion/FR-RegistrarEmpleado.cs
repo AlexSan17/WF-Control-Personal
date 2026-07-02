@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Control_Personal.CapaNegocios;
+
 namespace Control_Personal.CapaPresentacion
 {
     public partial class FR_RegistrarEmpleado : Form
@@ -100,75 +102,12 @@ namespace Control_Personal.CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (tb_Codigo_Empleado.Text.Trim() == "" ||
-                tb_cedula.Text.Trim() == "" ||
-                tb_nombre.Text.Trim() == "" ||
-                tb_apellido.Text.Trim() == "" ||
-                tb_edad.Text.Trim() == "" ||
-                tb_sexo.Text.Trim() == "" ||
-                tb_direccion.Text.Trim() == "" ||
-                tb_telefono.Text.Trim() == "" ||
-                tb_correo.Text.Trim() == "" ||
-                tb_cargo.Text.Trim() == "" ||
-                tb_departamento.Text.Trim() == "" ||
-                tb_sueldo.Text.Trim() == "" ||
-                tb_estado.Text.Trim() == "")
-            {
-                MessageBox.Show("Todos los campos son obligatorios.");
-                return;
-            }
-
-            if (Datos.ListaEmpleados.Any(emp => emp.Codigo == tb_Codigo_Empleado.Text.Trim()))
-            {
-                MessageBox.Show("El código del empleado ya existe.");
-                return;
-            }
-
-            if (Datos.ListaEmpleados.Any(emp => emp.Cedula == tb_cedula.Text.Trim()))
-            {
-                MessageBox.Show("La cédula ya está registrada.");
-                return;
-            }
-
-            if (!CedulaValida(tb_cedula.Text.Trim()))
-            {
-                MessageBox.Show("La cédula no es válida.");
-                return;
-            }
-
-            if (!int.TryParse(tb_edad.Text.Trim(), out int edad))
-            {
-                MessageBox.Show("La edad debe ser un número.");
-                return;
-            }
-
-            if (edad < 18)
-            {
-                MessageBox.Show("La edad debe ser mayor o igual a 18 años.");
-                return;
-            }
-
-            if (!CorreoValido(tb_correo.Text.Trim()))
-            {
-                MessageBox.Show("El correo electrónico no tiene un formato válido.");
-                return;
-            }
-
-            if (!decimal.TryParse(tb_sueldo.Text.Trim(), out decimal sueldo))
-            {
-                MessageBox.Show("El sueldo debe ser un número.");
-                return;
-            }
-
-            if (sueldo <= 0)
-            {
-                MessageBox.Show("El sueldo debe ser mayor que cero.");
-                return;
-            }
+            if (!int.TryParse(tb_edad.Text.Trim(), out int edad)) edad = 0;
+            if (!decimal.TryParse(tb_sueldo.Text.Trim(), out decimal sueldo)) sueldo = 0;
 
             Empleado nuevoEmpleado = new Empleado
             {
-                Codigo = tb_Codigo_Empleado.Text,
+                Codigo = tb_Codigo_Empleado.Text.Trim(),
                 Cedula = tb_cedula.Text.Trim(),
                 Nombres = tb_nombre.Text.Trim(),
                 Apellidos = tb_apellido.Text.Trim(),
@@ -184,24 +123,20 @@ namespace Control_Personal.CapaPresentacion
                 Estado = tb_estado.Text.Trim()
             };
 
-            Datos.ListaEmpleados.Add(nuevoEmpleado);
+            N_Empleado objNegocio = new N_Empleado();
+            string mensaje;
+            
+            bool respuesta = objNegocio.Registrar(nuevoEmpleado, out mensaje);
 
-            MessageBox.Show("Empleado registrado correctamente.");
-
-            button2_Click(sender, e);
-        }
-        private bool CorreoValido(string correo)
-        {
-            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(correo, patron);
-        }
-
-        private bool CedulaValida(string cedula)
-        {
-            if (cedula.Length != 10)
-                return false;
-
-            return cedula.All(char.IsDigit);
+            if (respuesta)
+            {
+                MessageBox.Show("Empleado registrado correctamente.");
+                button2_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void tb_Codigo_Empleado_TextChanged(object sender, EventArgs e)

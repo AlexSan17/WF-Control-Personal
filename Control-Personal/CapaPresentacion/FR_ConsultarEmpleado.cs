@@ -4,11 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Control_Personal.CapaNegocios;
 
 namespace Control_Personal.CapaPresentacion
 {
     public partial class FR_ConsultarEmpleado : Form
     {
+        private N_Empleado objNegocio = new N_Empleado();
+
         public FR_ConsultarEmpleado()
         {
             InitializeComponent();
@@ -67,7 +70,7 @@ namespace Control_Personal.CapaPresentacion
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             string criterio = cb_criterio.Text;
-            string busqueda = tb_buscar.Text.Trim().ToLower();
+            string busqueda = tb_buscar.Text.Trim();
 
             if (busqueda == "")
             {
@@ -76,38 +79,7 @@ namespace Control_Personal.CapaPresentacion
                 return;
             }
 
-            List<Empleado> resultado = new List<Empleado>();
-
-            if (criterio == "Código")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Codigo.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Cédula")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Cedula.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Nombre")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Nombres.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Apellido")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Apellidos.ToLower().Contains(busqueda))
-                    .ToList();
-            }
-            else if (criterio == "Departamento")
-            {
-                resultado = Datos.ListaEmpleados
-                    .Where(emp => emp.Departamento.ToLower().Contains(busqueda))
-                    .ToList();
-            }
+            List<Empleado> resultado = objNegocio.Consultar(criterio, busqueda);
 
             if (resultado.Count == 0)
             {
@@ -123,7 +95,7 @@ namespace Control_Personal.CapaPresentacion
             tb_buscar.Clear();
             cb_criterio.SelectedIndex = 0;
             dgv_empleados.Columns.Clear();
-            dgv_empleados.DataSource = Datos.ListaEmpleados.ToList();
+            dgv_empleados.DataSource = objNegocio.Listar();
         }
 
         // Este método soluciona el error:
