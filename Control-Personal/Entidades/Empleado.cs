@@ -1,4 +1,4 @@
-﻿namespace Control_Personal
+namespace Control_Personal.Entidades
 {
     public class Empleado
     {

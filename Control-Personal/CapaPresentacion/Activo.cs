@@ -1,9 +1,11 @@
+using Control_Personal.CapaDatos;
+using Control_Personal.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     public partial class Activo : Form
     {
@@ -68,6 +70,11 @@ namespace Control_Personal
         private void Activo_Load(object sender, EventArgs e)
         {
             MostrarEmpleadosActivos();
+        }
+
+        private void Activo_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

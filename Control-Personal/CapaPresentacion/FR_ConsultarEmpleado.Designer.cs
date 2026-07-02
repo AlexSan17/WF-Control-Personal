@@ -1,4 +1,4 @@
-锘縩amespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     partial class FR_ConsultarEmpleado
     {
@@ -42,7 +42,7 @@
             Edad = new DataGridViewTextBoxColumn();
             Sexo = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
-            Direcci贸n = new DataGridViewTextBoxColumn();
+            Direcci髇 = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
             Departamento = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
@@ -105,7 +105,7 @@
             dgv_empleados.AllowUserToResizeRows = false;
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci贸n, Correo, Departamento, Fecha, Sueldo, Estado });
+            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci髇, Correo, Departamento, Fecha, Sueldo, Estado });
             dgv_empleados.Location = new Point(12, 40);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
@@ -171,12 +171,12 @@
             Cargo.Name = "Cargo";
             Cargo.ReadOnly = true;
             // 
-            // Direcci贸n
+            // Direcci髇
             // 
-            Direcci贸n.HeaderText = "Direcci贸n";
-            Direcci贸n.MinimumWidth = 6;
-            Direcci贸n.Name = "Direcci贸n";
-            Direcci贸n.ReadOnly = true;
+            Direcci髇.HeaderText = "Direcci髇";
+            Direcci髇.MinimumWidth = 6;
+            Direcci髇.Name = "Direcci髇";
+            Direcci髇.ReadOnly = true;
             // 
             // Correo
             // 
@@ -249,7 +249,7 @@
         private DataGridViewTextBoxColumn Edad;
         private DataGridViewTextBoxColumn Sexo;
         private DataGridViewTextBoxColumn Cargo;
-        private DataGridViewTextBoxColumn Direcci贸n;
+        private DataGridViewTextBoxColumn Direcci髇;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Departamento;
         private DataGridViewTextBoxColumn Fecha;

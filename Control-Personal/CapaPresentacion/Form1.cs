@@ -1,9 +1,11 @@
+using Control_Personal.CapaDatos;
+using Control_Personal.Entidades;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     public partial class Form1 : Form
     {

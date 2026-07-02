@@ -1,3 +1,5 @@
+using Control_Personal.CapaDatos;
+using Control_Personal.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,7 @@ using System.Windows.Forms;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     public partial class FR_ModificarEmpleado : Form
     {
@@ -286,3 +288,4 @@ namespace Control_Personal
         }
     }
 }
+

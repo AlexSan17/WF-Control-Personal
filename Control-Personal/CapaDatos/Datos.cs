@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+using Control_Personal.Entidades;
+using System.Collections.Generic;
 
-namespace Control_Personal
+namespace Control_Personal.CapaDatos
 {
     public static class Datos
     {

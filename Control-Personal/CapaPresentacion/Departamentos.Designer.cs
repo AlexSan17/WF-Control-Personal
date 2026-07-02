@@ -1,6 +1,6 @@
-锘縩amespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
-    partial class Activo
+    partial class Departamentos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             dgv_empleados = new DataGridView();
-            lbl_criterio = new Label();
-            cb_criterio = new ComboBox();
             Codigo = new DataGridViewTextBoxColumn();
             Cedula = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
@@ -39,11 +37,13 @@
             Edad = new DataGridViewTextBoxColumn();
             Sexo = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
-            Direcci贸n = new DataGridViewTextBoxColumn();
+            Direcci髇 = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
-            Departamento = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
             Sueldo = new DataGridViewTextBoxColumn();
+            Estado = new DataGridViewTextBoxColumn();
+            lbl_criterio = new Label();
+            cb_criterio = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).BeginInit();
             SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             dgv_empleados.AllowUserToResizeRows = false;
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci贸n, Correo, Departamento, Fecha, Sueldo });
+            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci髇, Correo, Fecha, Sueldo, Estado });
             dgv_empleados.Location = new Point(12, 44);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
@@ -61,25 +61,6 @@
             dgv_empleados.Size = new Size(958, 398);
             dgv_empleados.TabIndex = 16;
             dgv_empleados.CellContentClick += dgv_empleados_CellContentClick;
-            // 
-            // lbl_criterio
-            // 
-            lbl_criterio.AutoSize = true;
-            lbl_criterio.Location = new Point(184, 13);
-            lbl_criterio.Name = "lbl_criterio";
-            lbl_criterio.Size = new Size(82, 20);
-            lbl_criterio.TabIndex = 13;
-            lbl_criterio.Text = "Buscar por:";
-            // 
-            // cb_criterio
-            // 
-            cb_criterio.DropDownStyle = ComboBoxStyle.DropDownList;
-            cb_criterio.FormattingEnabled = true;
-            cb_criterio.Items.AddRange(new object[] { "Nombre", "Apellido", "Cedula", "Codigo empleado", "Departamento" });
-            cb_criterio.Location = new Point(361, 13);
-            cb_criterio.Name = "cb_criterio";
-            cb_criterio.Size = new Size(212, 28);
-            cb_criterio.TabIndex = 12;
             // 
             // Codigo
             // 
@@ -137,12 +118,12 @@
             Cargo.Name = "Cargo";
             Cargo.ReadOnly = true;
             // 
-            // Direcci贸n
+            // Direcci髇
             // 
-            Direcci贸n.HeaderText = "Direcci贸n";
-            Direcci贸n.MinimumWidth = 6;
-            Direcci贸n.Name = "Direcci贸n";
-            Direcci贸n.ReadOnly = true;
+            Direcci髇.HeaderText = "Direcci髇";
+            Direcci髇.MinimumWidth = 6;
+            Direcci髇.Name = "Direcci髇";
+            Direcci髇.ReadOnly = true;
             // 
             // Correo
             // 
@@ -150,13 +131,6 @@
             Correo.MinimumWidth = 6;
             Correo.Name = "Correo";
             Correo.ReadOnly = true;
-            // 
-            // Departamento
-            // 
-            Departamento.HeaderText = "Departamento";
-            Departamento.MinimumWidth = 6;
-            Departamento.Name = "Departamento";
-            Departamento.ReadOnly = true;
             // 
             // Fecha
             // 
@@ -172,16 +146,43 @@
             Sueldo.Name = "Sueldo";
             Sueldo.ReadOnly = true;
             // 
-            // Activo
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.MinimumWidth = 6;
+            Estado.Name = "Estado";
+            Estado.ReadOnly = true;
+            // 
+            // lbl_criterio
+            // 
+            lbl_criterio.AutoSize = true;
+            lbl_criterio.Location = new Point(60, 10);
+            lbl_criterio.Name = "lbl_criterio";
+            lbl_criterio.Size = new Size(82, 20);
+            lbl_criterio.TabIndex = 13;
+            lbl_criterio.Text = "Buscar por:";
+            // 
+            // cb_criterio
+            // 
+            cb_criterio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_criterio.FormattingEnabled = true;
+            cb_criterio.Items.AddRange(new object[] { "Nombre", "Apellido", "Cedula", "Codigo empleado", "Departamento" });
+            cb_criterio.Location = new Point(203, 10);
+            cb_criterio.Name = "cb_criterio";
+            cb_criterio.Size = new Size(212, 28);
+            cb_criterio.TabIndex = 12;
+            // 
+            // Departamentos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 450);
+            ClientSize = new Size(1073, 450);
             Controls.Add(dgv_empleados);
             Controls.Add(lbl_criterio);
             Controls.Add(cb_criterio);
-            Name = "Activo";
-            Text = "Activo";
+            Name = "Departamentos";
+            Text = "Departamentos";
+            Load += Departamentos_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -190,8 +191,6 @@
         #endregion
 
         private DataGridView dgv_empleados;
-        private Label lbl_criterio;
-        private ComboBox cb_criterio;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Cedula;
         private DataGridViewTextBoxColumn Nombre;
@@ -200,10 +199,12 @@
         private DataGridViewTextBoxColumn Edad;
         private DataGridViewTextBoxColumn Sexo;
         private DataGridViewTextBoxColumn Cargo;
-        private DataGridViewTextBoxColumn Direcci贸n;
+        private DataGridViewTextBoxColumn Direcci髇;
         private DataGridViewTextBoxColumn Correo;
-        private DataGridViewTextBoxColumn Departamento;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Sueldo;
+        private DataGridViewTextBoxColumn Estado;
+        private Label lbl_criterio;
+        private ComboBox cb_criterio;
     }
 }

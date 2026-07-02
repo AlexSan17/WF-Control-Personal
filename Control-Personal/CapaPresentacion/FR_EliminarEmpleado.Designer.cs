@@ -1,6 +1,6 @@
-锘縩amespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
-    partial class FR_Reportes
+    partial class FR_EliminarEmpleado
     {
         /// <summary>
         /// Required designer variable.
@@ -37,12 +37,17 @@
             Edad = new DataGridViewTextBoxColumn();
             Sexo = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
-            Direcci贸n = new DataGridViewTextBoxColumn();
+            Direcci髇 = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
             Departamento = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
             Sueldo = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            btn_buscar = new Button();
+            tb_buscar = new TextBox();
+            lbl_criterio = new Label();
+            cb_criterio = new ComboBox();
+            btn_mostrar_todos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).BeginInit();
             SuspendLayout();
             // 
@@ -51,14 +56,15 @@
             dgv_empleados.AllowUserToResizeRows = false;
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci贸n, Correo, Departamento, Fecha, Sueldo, Estado });
-            dgv_empleados.Location = new Point(21, 12);
+            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci髇, Correo, Departamento, Fecha, Sueldo, Estado });
+            dgv_empleados.Location = new Point(12, 44);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
             dgv_empleados.RowHeadersWidth = 51;
             dgv_empleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_empleados.Size = new Size(958, 398);
-            dgv_empleados.TabIndex = 16;
+            dgv_empleados.TabIndex = 11;
+            dgv_empleados.CellContentClick += dgv_empleados_CellContentClick_1;
             // 
             // Codigo
             // 
@@ -116,12 +122,12 @@
             Cargo.Name = "Cargo";
             Cargo.ReadOnly = true;
             // 
-            // Direcci贸n
+            // Direcci髇
             // 
-            Direcci贸n.HeaderText = "Direcci贸n";
-            Direcci贸n.MinimumWidth = 6;
-            Direcci贸n.Name = "Direcci贸n";
-            Direcci贸n.ReadOnly = true;
+            Direcci髇.HeaderText = "Direcci髇";
+            Direcci髇.MinimumWidth = 6;
+            Direcci髇.Name = "Direcci髇";
+            Direcci髇.ReadOnly = true;
             // 
             // Correo
             // 
@@ -158,16 +164,71 @@
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
-            // FR_Reportes
+            // btn_buscar
+            // 
+            btn_buscar.Location = new Point(513, 9);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(94, 29);
+            btn_buscar.TabIndex = 9;
+            btn_buscar.Text = "Buscar";
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click_2;
+            // 
+            // tb_buscar
+            // 
+            tb_buscar.Location = new Point(339, 11);
+            tb_buscar.Name = "tb_buscar";
+            tb_buscar.Size = new Size(168, 27);
+            tb_buscar.TabIndex = 8;
+            tb_buscar.TextChanged += tb_buscar_TextChanged;
+            // 
+            // lbl_criterio
+            // 
+            lbl_criterio.AutoSize = true;
+            lbl_criterio.Location = new Point(17, 13);
+            lbl_criterio.Name = "lbl_criterio";
+            lbl_criterio.Size = new Size(82, 20);
+            lbl_criterio.TabIndex = 7;
+            lbl_criterio.Text = "Buscar por:";
+            lbl_criterio.Click += lbl_criterio_Click_1;
+            // 
+            // cb_criterio
+            // 
+            cb_criterio.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_criterio.FormattingEnabled = true;
+            cb_criterio.Items.AddRange(new object[] { "Nombre", "Apellido", "Cedula", "Codigo empleado", "Departamento" });
+            cb_criterio.Location = new Point(121, 10);
+            cb_criterio.Name = "cb_criterio";
+            cb_criterio.Size = new Size(212, 28);
+            cb_criterio.TabIndex = 6;
+            cb_criterio.SelectedIndexChanged += cb_criterio_SelectedIndexChanged;
+            // 
+            // btn_mostrar_todos
+            // 
+            btn_mostrar_todos.Location = new Point(613, 10);
+            btn_mostrar_todos.Name = "btn_mostrar_todos";
+            btn_mostrar_todos.Size = new Size(94, 29);
+            btn_mostrar_todos.TabIndex = 10;
+            btn_mostrar_todos.Text = "Eliminar";
+            btn_mostrar_todos.UseVisualStyleBackColor = true;
+            btn_mostrar_todos.Click += btn_mostrar_todos_Click;
+            // 
+            // FR_EliminarEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(999, 417);
+            ClientSize = new Size(980, 450);
             Controls.Add(dgv_empleados);
-            Name = "FR_Reportes";
-            Text = "FR_Reportes";
+            Controls.Add(btn_mostrar_todos);
+            Controls.Add(btn_buscar);
+            Controls.Add(tb_buscar);
+            Controls.Add(lbl_criterio);
+            Controls.Add(cb_criterio);
+            Name = "FR_EliminarEmpleado";
+            Text = "FR_EliminarEmpleado";
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -181,11 +242,16 @@
         private DataGridViewTextBoxColumn Edad;
         private DataGridViewTextBoxColumn Sexo;
         private DataGridViewTextBoxColumn Cargo;
-        private DataGridViewTextBoxColumn Direcci贸n;
+        private DataGridViewTextBoxColumn Direcci髇;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Departamento;
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Sueldo;
         private DataGridViewTextBoxColumn Estado;
+        private Button btn_buscar;
+        private TextBox tb_buscar;
+        private Label lbl_criterio;
+        private ComboBox cb_criterio;
+        private Button btn_mostrar_todos;
     }
 }

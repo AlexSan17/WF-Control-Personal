@@ -1,3 +1,5 @@
+using Control_Personal.Entidades;
+using Control_Personal.CapaDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     public partial class FR_Reportes : Form
     {
@@ -23,3 +25,4 @@ namespace Control_Personal
         }
     }
 }
+

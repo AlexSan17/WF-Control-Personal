@@ -1,4 +1,4 @@
-﻿namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     partial class Form1
     {
@@ -165,3 +165,4 @@
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
     }
 }
+

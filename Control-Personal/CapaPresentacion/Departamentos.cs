@@ -1,8 +1,10 @@
+using Control_Personal.Entidades;
+using Control_Personal.CapaDatos;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     public partial class Departamentos : Form
     {
@@ -63,6 +65,11 @@ namespace Control_Personal
         private void Departamentos_Load(object sender, EventArgs e)
         {
             MostrarPersonalPorDepartamento();
+        }
+
+        private void Departamentos_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

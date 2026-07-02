@@ -1,4 +1,4 @@
-﻿namespace Control_Personal
+namespace Control_Personal.CapaPresentacion
 {
     partial class FR_ModificarEmpleado
     {
