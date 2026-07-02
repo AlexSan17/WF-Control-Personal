@@ -72,10 +72,7 @@ namespace Control_Personal.CapaPresentacion
             AbrirFormulario<FR_Reportes>();
         }
 
-        private void personalPorDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<Departamentos>();
-        }
+
 
         private void personalActivoToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -52,7 +52,7 @@ namespace Control_Personal.CapaPresentacion
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Dirección, Correo, Departamento, Fecha, Sueldo, Estado });
-            dgv_empleados.Location = new Point(21, 12);
+            dgv_empleados.Location = new Point(29, 12);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
             dgv_empleados.RowHeadersWidth = 51;
@@ -162,7 +162,7 @@ namespace Control_Personal.CapaPresentacion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(999, 417);
+            ClientSize = new Size(999, 431);
             Controls.Add(dgv_empleados);
             Name = "FR_Reportes";
             Text = "FR_Reportes";

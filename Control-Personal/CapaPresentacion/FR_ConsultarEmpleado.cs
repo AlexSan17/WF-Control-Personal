@@ -144,16 +144,6 @@ namespace Control_Personal.CapaPresentacion
 
         }
 
-        private void btn_buscar_Click_1(object sender, EventArgs e)
-        {
-            tb_buscar.Clear();
-        }
-
-        private void btn_mostrar_todos_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void tb_buscar_TextChanged(object sender, EventArgs e)
         {
 
@@ -162,6 +152,16 @@ namespace Control_Personal.CapaPresentacion
         private void dgv_empleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_buscar_Click_1(object sender, EventArgs e)
+        {
+            btn_buscar_Click(sender, e);
+        }
+
+        private void btn_mostrar_todos_Click_1(object sender, EventArgs e)
+        {
+            btn_mostrar_todos_Click(sender, e);
         }
     }
 }

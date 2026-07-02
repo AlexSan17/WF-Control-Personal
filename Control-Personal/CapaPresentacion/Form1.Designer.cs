@@ -36,7 +36,6 @@ namespace Control_Personal.CapaPresentacion
             consultarToolStripMenuItem = new ToolStripMenuItem();
             reportesToolStripMenuItem = new ToolStripMenuItem();
             listadoGeneralToolStripMenuItem = new ToolStripMenuItem();
-            personalPorDepartamentoToolStripMenuItem = new ToolStripMenuItem();
             personalActivoToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
@@ -91,7 +90,7 @@ namespace Control_Personal.CapaPresentacion
             // 
             // reportesToolStripMenuItem
             // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalPorDepartamentoToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem });
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem });
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             reportesToolStripMenuItem.Size = new Size(82, 24);
             reportesToolStripMenuItem.Text = "Reportes";
@@ -104,12 +103,7 @@ namespace Control_Personal.CapaPresentacion
             listadoGeneralToolStripMenuItem.Text = "Listado General";
             listadoGeneralToolStripMenuItem.Click += listadoGeneralToolStripMenuItem_Click;
             // 
-            // personalPorDepartamentoToolStripMenuItem
-            // 
-            personalPorDepartamentoToolStripMenuItem.Name = "personalPorDepartamentoToolStripMenuItem";
-            personalPorDepartamentoToolStripMenuItem.Size = new Size(275, 26);
-            personalPorDepartamentoToolStripMenuItem.Text = "Personal por Departamento";
-            personalPorDepartamentoToolStripMenuItem.Click += personalPorDepartamentoToolStripMenuItem_Click;
+
             // 
             // personalActivoToolStripMenuItem
             // 
@@ -167,7 +161,6 @@ namespace Control_Personal.CapaPresentacion
         private ToolStripMenuItem consultarToolStripMenuItem;
         private ToolStripMenuItem reportesToolStripMenuItem;
         private ToolStripMenuItem listadoGeneralToolStripMenuItem;
-        private ToolStripMenuItem personalPorDepartamentoToolStripMenuItem;
         private ToolStripMenuItem personalActivoToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
