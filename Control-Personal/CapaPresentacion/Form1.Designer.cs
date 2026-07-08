@@ -37,9 +37,10 @@ namespace Control_Personal.CapaPresentacion
             reportesToolStripMenuItem = new ToolStripMenuItem();
             listadoGeneralToolStripMenuItem = new ToolStripMenuItem();
             personalActivoToolStripMenuItem = new ToolStripMenuItem();
+            personalInactivoToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
-            personalInactivoToolStripMenuItem = new ToolStripMenuItem();
+            beneficiosDelPersonalToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,7 +91,7 @@ namespace Control_Personal.CapaPresentacion
             // 
             // reportesToolStripMenuItem
             // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem });
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem, beneficiosDelPersonalToolStripMenuItem });
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             reportesToolStripMenuItem.Size = new Size(82, 24);
             reportesToolStripMenuItem.Text = "Reportes";
@@ -99,18 +100,23 @@ namespace Control_Personal.CapaPresentacion
             // listadoGeneralToolStripMenuItem
             // 
             listadoGeneralToolStripMenuItem.Name = "listadoGeneralToolStripMenuItem";
-            listadoGeneralToolStripMenuItem.Size = new Size(275, 26);
+            listadoGeneralToolStripMenuItem.Size = new Size(248, 26);
             listadoGeneralToolStripMenuItem.Text = "Listado General";
             listadoGeneralToolStripMenuItem.Click += listadoGeneralToolStripMenuItem_Click;
-            // 
-
             // 
             // personalActivoToolStripMenuItem
             // 
             personalActivoToolStripMenuItem.Name = "personalActivoToolStripMenuItem";
-            personalActivoToolStripMenuItem.Size = new Size(275, 26);
+            personalActivoToolStripMenuItem.Size = new Size(248, 26);
             personalActivoToolStripMenuItem.Text = "Personal Activo";
             personalActivoToolStripMenuItem.Click += personalActivoToolStripMenuItem_Click;
+            // 
+            // personalInactivoToolStripMenuItem
+            // 
+            personalInactivoToolStripMenuItem.Name = "personalInactivoToolStripMenuItem";
+            personalInactivoToolStripMenuItem.Size = new Size(248, 26);
+            personalInactivoToolStripMenuItem.Text = "Personal Inactivo";
+            personalInactivoToolStripMenuItem.Click += personalInactivoToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
@@ -126,12 +132,12 @@ namespace Control_Personal.CapaPresentacion
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
-            // personalInactivoToolStripMenuItem
+            // beneficiosDelPersonalToolStripMenuItem
             // 
-            personalInactivoToolStripMenuItem.Name = "personalInactivoToolStripMenuItem";
-            personalInactivoToolStripMenuItem.Size = new Size(275, 26);
-            personalInactivoToolStripMenuItem.Text = "Personal Inactivo";
-            personalInactivoToolStripMenuItem.Click += personalInactivoToolStripMenuItem_Click;
+            beneficiosDelPersonalToolStripMenuItem.Name = "beneficiosDelPersonalToolStripMenuItem";
+            beneficiosDelPersonalToolStripMenuItem.Size = new Size(248, 26);
+            beneficiosDelPersonalToolStripMenuItem.Text = "Beneficios del Personal ";
+            beneficiosDelPersonalToolStripMenuItem.Click += beneficiosDelPersonalToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -145,6 +151,7 @@ namespace Control_Personal.CapaPresentacion
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de control de personal";
             WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -165,6 +172,7 @@ namespace Control_Personal.CapaPresentacion
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
         private ToolStripMenuItem personalInactivoToolStripMenuItem;
+        private ToolStripMenuItem beneficiosDelPersonalToolStripMenuItem;
     }
 }
 

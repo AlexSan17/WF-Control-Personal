@@ -118,5 +118,15 @@ namespace Control_Personal.CapaPresentacion
                 Application.Exit();
             }
         }
+
+        private void beneficiosDelPersonalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FR_BeneficiosPersonal>();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

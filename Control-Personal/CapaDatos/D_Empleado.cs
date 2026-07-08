@@ -31,6 +31,7 @@ namespace Control_Personal.CapaDatos
                 emp.Correo = empleado.Correo;
                 emp.Cargo = empleado.Cargo;
                 emp.Departamento = empleado.Departamento;
+                emp.FechaIngreso = empleado.FechaIngreso;
                 emp.Sueldo = empleado.Sueldo;
                 emp.Estado = empleado.Estado;
             }
@@ -41,7 +42,8 @@ namespace Control_Personal.CapaDatos
             var emp = Datos.ListaEmpleados.FirstOrDefault(e => e.Codigo == codigo);
             if (emp != null)
             {
-                Datos.ListaEmpleados.Remove(emp);
+                Datos.ListaEmpleados.Remove(emp);   
+            
             }
         }
     }
