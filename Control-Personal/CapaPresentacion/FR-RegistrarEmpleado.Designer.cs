@@ -1,4 +1,4 @@
-namespace Control_Personal.CapaPresentacion
+﻿namespace Control_Personal.CapaPresentacion
 {
     partial class FR_RegistrarEmpleado
     {
@@ -232,7 +232,7 @@ namespace Control_Personal.CapaPresentacion
             // 
             tb_fecha_de_ingreso.Location = new Point(179, 352);
             tb_fecha_de_ingreso.Name = "tb_fecha_de_ingreso";
-            tb_fecha_de_ingreso.Size = new Size(250, 27);
+            tb_fecha_de_ingreso.Size = new Size(202, 27);
             tb_fecha_de_ingreso.TabIndex = 28;
             // 
             // tb_departamento
@@ -372,6 +372,21 @@ namespace Control_Personal.CapaPresentacion
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            // 
+            // btn_cerrar_global
+            // 
+            this.btn_cerrar_global = new System.Windows.Forms.Button();
+            this.btn_cerrar_global.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cerrar_global.Location = new System.Drawing.Point(this.ClientSize.Width - 110, this.ClientSize.Height - 40);
+            this.btn_cerrar_global.Name = "btn_cerrar_global";
+            this.btn_cerrar_global.Size = new System.Drawing.Size(95, 30);
+            this.btn_cerrar_global.TabIndex = 999;
+            this.btn_cerrar_global.Text = "Cerrar";
+            this.btn_cerrar_global.UseVisualStyleBackColor = true;
+            this.btn_cerrar_global.Click += new System.EventHandler(this.btn_cerrar_global_Click);
+            this.Controls.Add(this.btn_cerrar_global);
+            this.btn_cerrar_global.BringToFront();
+
             ResumeLayout(false);
         }
 
@@ -409,5 +424,6 @@ namespace Control_Personal.CapaPresentacion
         private Button button2;
         private Button button1;
         private DateTimePicker tb_fecha_de_ingreso;
-    }
+    
+        private System.Windows.Forms.Button btn_cerrar_global;}
 }

@@ -212,6 +212,10 @@ namespace Control_Personal.CapaPresentacion
                 MessageBox.Show("Empleado no encontrado.");
             }
         }
-    }
+    
+        private void btn_cerrar_global_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }}
 }
 

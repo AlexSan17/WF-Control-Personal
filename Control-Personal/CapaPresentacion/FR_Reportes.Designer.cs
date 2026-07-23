@@ -43,21 +43,28 @@ namespace Control_Personal.CapaPresentacion
             Fecha = new DataGridViewTextBoxColumn();
             Sueldo = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            btn_cerrar_global = new Button();
+            lbl_departamento = new Label();
+            cb_departamento = new ComboBox();
+            btn_anterior = new Button();
+            btn_siguiente = new Button();
+            lbl_pagina = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).BeginInit();
             SuspendLayout();
             // 
             // dgv_empleados
             // 
             dgv_empleados.AllowUserToResizeRows = false;
+            dgv_empleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Dirección, Correo, Departamento, Fecha, Sueldo, Estado });
-            dgv_empleados.Location = new Point(29, 12);
+            dgv_empleados.Location = new Point(29, 60);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
             dgv_empleados.RowHeadersWidth = 51;
             dgv_empleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_empleados.Size = new Size(958, 398);
+            dgv_empleados.Size = new Size(948, 310);
             dgv_empleados.TabIndex = 16;
             // 
             // Codigo
@@ -158,16 +165,86 @@ namespace Control_Personal.CapaPresentacion
             Estado.Name = "Estado";
             Estado.ReadOnly = true;
             // 
+            // btn_cerrar_global
+            // 
+            btn_cerrar_global.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_cerrar_global.Location = new Point(882, 385);
+            btn_cerrar_global.Name = "btn_cerrar_global";
+            btn_cerrar_global.Size = new Size(95, 30);
+            btn_cerrar_global.TabIndex = 999;
+            btn_cerrar_global.Text = "Cerrar";
+            btn_cerrar_global.UseVisualStyleBackColor = true;
+            btn_cerrar_global.Click += btn_cerrar_global_Click;
+            // 
+            // lbl_departamento
+            // 
+            lbl_departamento.AutoSize = true;
+            lbl_departamento.Location = new Point(29, 20);
+            lbl_departamento.Name = "lbl_departamento";
+            lbl_departamento.Size = new Size(178, 20);
+            lbl_departamento.TabIndex = 100;
+            lbl_departamento.Text = "Filtrar por Departamento:";
+            // 
+            // cb_departamento
+            // 
+            cb_departamento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_departamento.FormattingEnabled = true;
+            cb_departamento.Items.AddRange(new object[] { "Todos", "Recursos Humanos", "Administración y Finanzas", "Ventas", "Marketing", "Sistemas / TI", "Operaciones", "Logística y Bodega", "Gerencia General" });
+            cb_departamento.Location = new Point(213, 17);
+            cb_departamento.Name = "cb_departamento";
+            cb_departamento.Size = new Size(212, 28);
+            cb_departamento.TabIndex = 101;
+            cb_departamento.SelectedIndexChanged += cb_departamento_SelectedIndexChanged;
+            // 
+            // btn_anterior
+            // 
+            btn_anterior.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_anterior.Location = new Point(29, 385);
+            btn_anterior.Name = "btn_anterior";
+            btn_anterior.Size = new Size(95, 30);
+            btn_anterior.TabIndex = 102;
+            btn_anterior.Text = "< Anterior";
+            btn_anterior.UseVisualStyleBackColor = true;
+            btn_anterior.Click += btn_anterior_Click;
+            // 
+            // btn_siguiente
+            // 
+            btn_siguiente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_siguiente.Location = new Point(130, 385);
+            btn_siguiente.Name = "btn_siguiente";
+            btn_siguiente.Size = new Size(95, 30);
+            btn_siguiente.TabIndex = 103;
+            btn_siguiente.Text = "Siguiente >";
+            btn_siguiente.UseVisualStyleBackColor = true;
+            btn_siguiente.Click += btn_siguiente_Click;
+            // 
+            // lbl_pagina
+            // 
+            lbl_pagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_pagina.AutoSize = true;
+            lbl_pagina.Location = new Point(240, 390);
+            lbl_pagina.Name = "lbl_pagina";
+            lbl_pagina.Size = new Size(99, 20);
+            lbl_pagina.TabIndex = 104;
+            lbl_pagina.Text = "Página 1 de X";
+            // 
             // FR_Reportes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(999, 431);
+            Controls.Add(btn_cerrar_global);
+            Controls.Add(lbl_departamento);
+            Controls.Add(cb_departamento);
+            Controls.Add(btn_anterior);
+            Controls.Add(btn_siguiente);
+            Controls.Add(lbl_pagina);
             Controls.Add(dgv_empleados);
             Name = "FR_Reportes";
             Text = "FR_Reportes";
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -187,5 +264,12 @@ namespace Control_Personal.CapaPresentacion
         private DataGridViewTextBoxColumn Fecha;
         private DataGridViewTextBoxColumn Sueldo;
         private DataGridViewTextBoxColumn Estado;
-    }
+    
+        private System.Windows.Forms.Button btn_cerrar_global;
+        private System.Windows.Forms.Label lbl_departamento;
+        private System.Windows.Forms.ComboBox cb_departamento;
+        private System.Windows.Forms.Button btn_anterior;
+        private System.Windows.Forms.Button btn_siguiente;
+        private System.Windows.Forms.Label lbl_pagina;
+}
 }

@@ -163,5 +163,9 @@ namespace Control_Personal.CapaPresentacion
         {
             btn_mostrar_todos_Click(sender, e);
         }
-    }
+    
+        private void btn_cerrar_global_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }}
 }

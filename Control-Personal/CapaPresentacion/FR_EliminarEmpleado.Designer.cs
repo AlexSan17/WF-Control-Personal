@@ -1,4 +1,4 @@
-namespace Control_Personal.CapaPresentacion
+锘縩amespace Control_Personal.CapaPresentacion
 {
     partial class FR_EliminarEmpleado
     {
@@ -37,7 +37,7 @@ namespace Control_Personal.CapaPresentacion
             Edad = new DataGridViewTextBoxColumn();
             Sexo = new DataGridViewTextBoxColumn();
             Cargo = new DataGridViewTextBoxColumn();
-            Direcci髇 = new DataGridViewTextBoxColumn();
+            Direcci贸n = new DataGridViewTextBoxColumn();
             Correo = new DataGridViewTextBoxColumn();
             Departamento = new DataGridViewTextBoxColumn();
             Fecha = new DataGridViewTextBoxColumn();
@@ -48,6 +48,7 @@ namespace Control_Personal.CapaPresentacion
             lbl_criterio = new Label();
             cb_criterio = new ComboBox();
             btn_mostrar_todos = new Button();
+            btn_cerrar_global = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace Control_Personal.CapaPresentacion
             dgv_empleados.AllowUserToResizeRows = false;
             dgv_empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci髇, Correo, Departamento, Fecha, Sueldo, Estado });
+            dgv_empleados.Columns.AddRange(new DataGridViewColumn[] { Codigo, Cedula, Nombre, Apellido, Telefono, Edad, Sexo, Cargo, Direcci贸n, Correo, Departamento, Fecha, Sueldo, Estado });
             dgv_empleados.Location = new Point(12, 44);
             dgv_empleados.Name = "dgv_empleados";
             dgv_empleados.ReadOnly = true;
@@ -122,12 +123,12 @@ namespace Control_Personal.CapaPresentacion
             Cargo.Name = "Cargo";
             Cargo.ReadOnly = true;
             // 
-            // Direcci髇
+            // Direcci贸n
             // 
-            Direcci髇.HeaderText = "Direcci髇";
-            Direcci髇.MinimumWidth = 6;
-            Direcci髇.Name = "Direcci髇";
-            Direcci髇.ReadOnly = true;
+            Direcci贸n.HeaderText = "Direcci贸n";
+            Direcci贸n.MinimumWidth = 6;
+            Direcci贸n.Name = "Direcci贸n";
+            Direcci贸n.ReadOnly = true;
             // 
             // Correo
             // 
@@ -213,17 +214,29 @@ namespace Control_Personal.CapaPresentacion
             btn_mostrar_todos.UseVisualStyleBackColor = true;
             btn_mostrar_todos.Click += btn_mostrar_todos_Click;
             // 
+            // btn_cerrar_global
+            // 
+            btn_cerrar_global.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_cerrar_global.Location = new Point(873, 8);
+            btn_cerrar_global.Name = "btn_cerrar_global";
+            btn_cerrar_global.Size = new Size(95, 30);
+            btn_cerrar_global.TabIndex = 999;
+            btn_cerrar_global.Text = "Cerrar";
+            btn_cerrar_global.UseVisualStyleBackColor = true;
+            btn_cerrar_global.Click += btn_cerrar_global_Click;
+            // 
             // FR_EliminarEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(980, 450);
-            Controls.Add(dgv_empleados);
             Controls.Add(btn_mostrar_todos);
             Controls.Add(btn_buscar);
             Controls.Add(tb_buscar);
             Controls.Add(lbl_criterio);
             Controls.Add(cb_criterio);
+            Controls.Add(btn_cerrar_global);
+            Controls.Add(dgv_empleados);
             Name = "FR_EliminarEmpleado";
             Text = "FR_EliminarEmpleado";
             ((System.ComponentModel.ISupportInitialize)dgv_empleados).EndInit();
@@ -242,7 +255,7 @@ namespace Control_Personal.CapaPresentacion
         private DataGridViewTextBoxColumn Edad;
         private DataGridViewTextBoxColumn Sexo;
         private DataGridViewTextBoxColumn Cargo;
-        private DataGridViewTextBoxColumn Direcci髇;
+        private DataGridViewTextBoxColumn Direcci贸n;
         private DataGridViewTextBoxColumn Correo;
         private DataGridViewTextBoxColumn Departamento;
         private DataGridViewTextBoxColumn Fecha;
@@ -253,5 +266,6 @@ namespace Control_Personal.CapaPresentacion
         private Label lbl_criterio;
         private ComboBox cb_criterio;
         private Button btn_mostrar_todos;
-    }
+    
+        private System.Windows.Forms.Button btn_cerrar_global;}
 }

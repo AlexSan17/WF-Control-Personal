@@ -20,11 +20,7 @@ namespace Control_Personal.CapaNegocios
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(empleado.Codigo) || string.IsNullOrWhiteSpace(empleado.Cedula))
-            {
-                mensaje = "Todos los campos son obligatorios.";
-                return false;
-            }
+
 
             if (objDatos.Listar().Any(e => e.Codigo == empleado.Codigo))
             {
@@ -38,29 +34,7 @@ namespace Control_Personal.CapaNegocios
                 return false;
             }
 
-            if (!CedulaValida(empleado.Cedula))
-            {
-                mensaje = "La cédula no es válida (Debe tener 10 dígitos numéricos).";
-                return false;
-            }
 
-            if (empleado.Edad < 18)
-            {
-                mensaje = "La edad debe ser mayor o igual a 18 años.";
-                return false;
-            }
-
-            if (!CorreoValido(empleado.Correo))
-            {
-                mensaje = "El correo electrónico no tiene un formato válido.";
-                return false;
-            }
-
-            if (empleado.Sueldo <= 0)
-            {
-                mensaje = "El sueldo debe ser mayor a cero.";
-                return false;
-            }
 
             objDatos.Insertar(empleado);
             return true;
@@ -70,11 +44,7 @@ namespace Control_Personal.CapaNegocios
         {
             mensaje = string.Empty;
 
-            if (string.IsNullOrWhiteSpace(empleado.Codigo) || string.IsNullOrWhiteSpace(empleado.Cedula))
-            {
-                mensaje = "Todos los campos son obligatorios.";
-                return false;
-            }
+
 
             if (objDatos.Listar().Any(e => e.Cedula == empleado.Cedula && e.Codigo != empleado.Codigo))
             {
@@ -82,29 +52,7 @@ namespace Control_Personal.CapaNegocios
                 return false;
             }
 
-            if (!CedulaValida(empleado.Cedula))
-            {
-                mensaje = "La cédula no es válida.";
-                return false;
-            }
 
-            if (empleado.Edad < 18)
-            {
-                mensaje = "La edad debe ser mayor o igual a 18 años.";
-                return false;
-            }
-
-            if (!CorreoValido(empleado.Correo))
-            {
-                mensaje = "El correo electrónico no tiene un formato válido.";
-                return false;
-            }
-
-            if (empleado.Sueldo <= 0)
-            {
-                mensaje = "El sueldo debe ser mayor a cero.";
-                return false;
-            }
 
             objDatos.Editar(empleado);
             return true;
@@ -144,17 +92,6 @@ namespace Control_Personal.CapaNegocios
             return lista;
         }
 
-        private bool CedulaValida(string cedula)
-        {
-            if (string.IsNullOrWhiteSpace(cedula) || cedula.Length != 10) return false;
-            return cedula.All(char.IsDigit);
-        }
 
-        private bool CorreoValido(string correo)
-        {
-            if (string.IsNullOrWhiteSpace(correo)) return false;
-            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(correo, patron);
-        }
     }
 }

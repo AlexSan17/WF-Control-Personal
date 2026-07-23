@@ -1,4 +1,4 @@
-namespace Control_Personal.CapaPresentacion
+﻿namespace Control_Personal.CapaPresentacion
 {
     partial class FR_ModificarEmpleado
     {
@@ -103,10 +103,8 @@ namespace Control_Personal.CapaPresentacion
             // 
             // textBox1
             // 
-            textBox1.BackColor = SystemColors.AppWorkspace;
             textBox1.Location = new Point(179, 352);
             textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
             textBox1.Size = new Size(171, 27);
             textBox1.TabIndex = 28;
             // 
@@ -161,10 +159,8 @@ namespace Control_Personal.CapaPresentacion
             // 
             // tb_sexo
             // 
-            tb_sexo.BackColor = SystemColors.AppWorkspace;
             tb_sexo.Location = new Point(179, 173);
             tb_sexo.Name = "tb_sexo";
-            tb_sexo.ReadOnly = true;
             tb_sexo.Size = new Size(75, 27);
             tb_sexo.TabIndex = 19;
             // 
@@ -198,10 +194,8 @@ namespace Control_Personal.CapaPresentacion
             // 
             // tb_Codigo_Empleado
             // 
-            tb_Codigo_Empleado.BackColor = SystemColors.AppWorkspace;
             tb_Codigo_Empleado.Location = new Point(179, 16);
             tb_Codigo_Empleado.Name = "tb_Codigo_Empleado";
-            tb_Codigo_Empleado.ReadOnly = true;
             tb_Codigo_Empleado.Size = new Size(202, 27);
             tb_Codigo_Empleado.TabIndex = 14;
             tb_Codigo_Empleado.TextChanged += tb_Codigo_Empleado_TextChanged;

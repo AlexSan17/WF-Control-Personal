@@ -153,6 +153,10 @@ namespace Control_Personal.CapaPresentacion
         {
 
         }
-    }
+    
+        private void btn_cerrar_global_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }}
 }
 

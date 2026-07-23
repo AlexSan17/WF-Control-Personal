@@ -38,9 +38,11 @@ namespace Control_Personal.CapaPresentacion
             listadoGeneralToolStripMenuItem = new ToolStripMenuItem();
             personalActivoToolStripMenuItem = new ToolStripMenuItem();
             personalInactivoToolStripMenuItem = new ToolStripMenuItem();
+            beneficiosDelPersonalToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
-            beneficiosDelPersonalToolStripMenuItem = new ToolStripMenuItem();
+            rolDePagoToolStripMenuItem = new ToolStripMenuItem();
+            liquidaciónToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,38 +62,39 @@ namespace Control_Personal.CapaPresentacion
             gestionDePersonalToolStripMenuItem.Name = "gestionDePersonalToolStripMenuItem";
             gestionDePersonalToolStripMenuItem.Size = new Size(155, 24);
             gestionDePersonalToolStripMenuItem.Text = "Gestion de personal";
+            gestionDePersonalToolStripMenuItem.Click += gestionDePersonalToolStripMenuItem_Click;
             // 
             // registrarToolStripMenuItem
             // 
             registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            registrarToolStripMenuItem.Size = new Size(156, 26);
+            registrarToolStripMenuItem.Size = new Size(224, 26);
             registrarToolStripMenuItem.Text = "Registrar";
             registrarToolStripMenuItem.Click += registrarToolStripMenuItem_Click;
             // 
             // moficarToolStripMenuItem
             // 
             moficarToolStripMenuItem.Name = "moficarToolStripMenuItem";
-            moficarToolStripMenuItem.Size = new Size(156, 26);
+            moficarToolStripMenuItem.Size = new Size(224, 26);
             moficarToolStripMenuItem.Text = "Modificar";
             moficarToolStripMenuItem.Click += moficarToolStripMenuItem_Click;
             // 
             // eliminarToolStripMenuItem
             // 
             eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(156, 26);
+            eliminarToolStripMenuItem.Size = new Size(224, 26);
             eliminarToolStripMenuItem.Text = "Eliminar";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
             // consultarToolStripMenuItem
             // 
             consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            consultarToolStripMenuItem.Size = new Size(156, 26);
+            consultarToolStripMenuItem.Size = new Size(224, 26);
             consultarToolStripMenuItem.Text = "Consultar";
             consultarToolStripMenuItem.Click += consultarToolStripMenuItem_Click;
             // 
             // reportesToolStripMenuItem
             // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem, beneficiosDelPersonalToolStripMenuItem });
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listadoGeneralToolStripMenuItem, personalActivoToolStripMenuItem, personalInactivoToolStripMenuItem, beneficiosDelPersonalToolStripMenuItem, rolDePagoToolStripMenuItem, liquidaciónToolStripMenuItem });
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             reportesToolStripMenuItem.Size = new Size(82, 24);
             reportesToolStripMenuItem.Text = "Reportes";
@@ -118,6 +121,13 @@ namespace Control_Personal.CapaPresentacion
             personalInactivoToolStripMenuItem.Text = "Personal Inactivo";
             personalInactivoToolStripMenuItem.Click += personalInactivoToolStripMenuItem_Click;
             // 
+            // beneficiosDelPersonalToolStripMenuItem
+            // 
+            beneficiosDelPersonalToolStripMenuItem.Name = "beneficiosDelPersonalToolStripMenuItem";
+            beneficiosDelPersonalToolStripMenuItem.Size = new Size(248, 26);
+            beneficiosDelPersonalToolStripMenuItem.Text = "Beneficios del Personal ";
+            beneficiosDelPersonalToolStripMenuItem.Click += beneficiosDelPersonalToolStripMenuItem_Click;
+            // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirDelSistemaToolStripMenuItem });
@@ -132,12 +142,19 @@ namespace Control_Personal.CapaPresentacion
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
-            // beneficiosDelPersonalToolStripMenuItem
+            // rolDePagoToolStripMenuItem
             // 
-            beneficiosDelPersonalToolStripMenuItem.Name = "beneficiosDelPersonalToolStripMenuItem";
-            beneficiosDelPersonalToolStripMenuItem.Size = new Size(248, 26);
-            beneficiosDelPersonalToolStripMenuItem.Text = "Beneficios del Personal ";
-            beneficiosDelPersonalToolStripMenuItem.Click += beneficiosDelPersonalToolStripMenuItem_Click;
+            rolDePagoToolStripMenuItem.Name = "rolDePagoToolStripMenuItem";
+            rolDePagoToolStripMenuItem.Size = new Size(248, 26);
+            rolDePagoToolStripMenuItem.Text = "Rol de pago ";
+            rolDePagoToolStripMenuItem.Click += rolDePagoToolStripMenuItem_Click;
+            // 
+            // liquidaciónToolStripMenuItem
+            // 
+            liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
+            liquidaciónToolStripMenuItem.Size = new Size(248, 26);
+            liquidaciónToolStripMenuItem.Text = "Liquidación";
+            liquidaciónToolStripMenuItem.Click += liquidaciónToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -173,6 +190,8 @@ namespace Control_Personal.CapaPresentacion
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
         private ToolStripMenuItem personalInactivoToolStripMenuItem;
         private ToolStripMenuItem beneficiosDelPersonalToolStripMenuItem;
+        private ToolStripMenuItem rolDePagoToolStripMenuItem;
+        private ToolStripMenuItem liquidaciónToolStripMenuItem;
     }
 }
 

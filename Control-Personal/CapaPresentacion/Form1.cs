@@ -128,5 +128,20 @@ namespace Control_Personal.CapaPresentacion
         {
 
         }
+
+        private void gestionDePersonalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rolDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Form2>();
+        }
+
+        private void liquidaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Liquidación>();
+        }
     }
 }
